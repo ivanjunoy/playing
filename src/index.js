@@ -10,15 +10,16 @@ function createBox() {
     box.style.backgroundColor = random_rgba();
     
     // Obtener el tamaño del contenedor y el cuadrado
-    const contenedorWidth = window.screen.width
-    const contenedorHeight = window.screen.height
+    const contenedorWidth = window.screen.availWidth
+    const contenedorHeight = window.innerHeight
     const boxSize = 50; // Tamaño del cuadrado (ajusta esto según tu diseño)
+
 
     // Calcular cuántos cuadrados caben en el contenedor
     const cuadradosPorFila = Math.floor(contenedorWidth / boxSize);
     const cuadradosPorColumna = Math.floor(contenedorHeight / boxSize);
     const cuadradosTotales = cuadradosPorFila * cuadradosPorColumna;
-    console.log('cuadradosTotales: ', cuadradosTotales);
+
     // Obtener todos los cuadrados existentes
     const cuadradosExistentes = document.querySelectorAll('.box').length;
 
