@@ -1,13 +1,10 @@
-function random_rgba() {
-    var o = Math.round, r = Math.random, s = 255;
-    return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + r().toFixed(1) + ')';
-}
+import randomRgba from "./src/Componentes/randomRgb";
 
 function createBox() {
     const contenedor = document.querySelector('.contenedor');
     const box = document.createElement('div');
     box.classList.add('box');
-    box.style.backgroundColor = random_rgba();
+    box.style.backgroundColor = randomRgba();
     
     // Obtener el tamaño del contenedor y el cuadrado
     const contenedorWidth = window.screen.availWidth
