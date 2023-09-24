@@ -37,5 +37,19 @@ const intervalo = setInterval(() => {
 }, 1);
 
 document.body.addEventListener('click', function() {
-    clearInterval(intervalo);
+/*     clearInterval(intervalo); */
+    const elemntoBorrar = document.querySelectorAll('.box')
+
+    elemntoBorrar.forEach(item => {
+        item.remove()
+    })
 });
+
+
+/*  
+    random box size
+    box.style.height = Math.round(Math.random() * 50) + 'px'
+    box.style.width = Math.round(Math.random() * 50) + 'px'
+
+    console.log(Math.round(Math.random() * 50));
+ */
