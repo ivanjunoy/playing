@@ -1,0 +1,30 @@
+.contenedorPrincipal{
+    display: flex;
+    justify-content: center;
+}
+
+.contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+  /*   align-items: flex-end; */
+}
+
+.box {
+    width: 150px;
+    height: 150px;
+
+    font-size: 12px;
+    font-family: monospace;
+    align-items: center;
+}
+
+.zoom {
+    background-color: green;
+    transition: transform .2s; /* Animation */
+    margin: 0 auto;
+  }
+  
+  .zoom:hover {
+    transform: scale(2.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }
