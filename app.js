@@ -1,4 +1,9 @@
-import randomRgba from "./src/Componentes/randomRgb";
+
+console.log(randomRgba());
+function randomRgba() {
+    var o = Math.round, r = Math.random, s = 255;
+    return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + r().toFixed(1) + ')';
+}
 
 function createBox() {
     const contenedor = document.querySelector('.contenedor');
