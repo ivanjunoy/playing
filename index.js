@@ -18,7 +18,7 @@ function createBox() {
     // Obtener el tamaño del contenedor y el cuadrado
     const contenedorWidth = window.screen.availWidth
     const contenedorHeight = window.innerHeight
-    const boxSize = 150; // Tamaño del cuadrado (ajusta esto según tu diseño)
+    const boxSize = 50; // Tamaño del cuadrado (ajusta esto según tu diseño)
 
     box.addEventListener('mouseover', function(){
         box.innerHTML = color;
