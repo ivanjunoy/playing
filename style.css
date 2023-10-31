@@ -7,6 +7,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content:center;
+
   /*   align-items: flex-end; */
 }
 
@@ -17,6 +18,7 @@
     font-size: 12px;
     font-family: monospace;
     align-items: center;
+    text-align: center;
 }
 
 .zoom {
@@ -27,4 +29,5 @@
   
   .zoom:hover {
     transform: scale(2.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    width: 200px;
   }
