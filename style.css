@@ -1,33 +1,45 @@
+body {
+  font-family: 'Courier New', monospace;
+}
+
+p {
+  margin: 0px;
+}
+
 .contenedorPrincipal{
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .contenedor {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content:center;
-
-  /*   align-items: flex-end; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:center;
 }
 
 .box {
-    width: 50px;
-    height: 50px;
+  width: 150px;
+  height: 150px;
 
-    font-size: 12px;
-    font-family: monospace;
-    align-items: center;
-    text-align: center;
+  font-size: 12px;
+  align-items: center;
 }
 
 .zoom {
-    background-color: green;
-    transition: transform .2s; /* Animation */
-    margin: 0 auto;
-  }
-  
-  .zoom:hover {
-    transform: scale(2.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-    width: 200px;
-  }
+  background-color: green;
+  margin: 10px auto;
+}
+
+
+.iDfooter {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.color-info {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}

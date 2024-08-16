@@ -1,6 +1,36 @@
 function random_rgba() {
-    var o = Math.round, r = Math.random, s = 255;
-    return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + 1 + ')';
+    const o = Math.round, r = Math.random, s = 255;
+
+    // Generar los valores RGB
+    const red = o(r() * s);
+    const green = o(r() * s);
+    const blue = o(r() * s);
+
+    // Convertir RGB a hex
+    const hexColor = rgbToHex(red, green, blue);
+
+    // Generar el valor RGBA
+    const rgbaColor = 'rgba(' + red + ',' + green + ',' + blue + ',' + 1 + ')';
+    const rgbaLabel = red + ',' + green + ',' + blue + ',' + 1
+
+    // Devolver ambos valores en un objeto
+    return {
+        rgba: rgbaColor,
+        hex: hexColor,
+        red: red,
+        green: green,
+        blue: blue,
+        rgbaLabel: rgbaLabel
+    };
+}
+
+function componentToHex(c) {
+    const hex = c.toString(16);
+    return hex.length == 1 ? "0" + hex : hex;
+}
+  
+function rgbToHex(r, g, b) {
+    return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
 }
 
 function mostrarRgb(color, box){
@@ -14,19 +44,31 @@ function createBox() {
     const color = random_rgba();
     box.classList.add('box');
     box.classList.add('zoom');
-    box.style.backgroundColor = color;
+    box.style.backgroundColor = color.rgba;
+
     // Obtener el tamaño del contenedor y el cuadrado
     const contenedorWidth = window.screen.availWidth
     const contenedorHeight = window.innerHeight
-    const boxSize = 50; // Tamaño del cuadrado (ajusta esto según tu diseño)
+    const boxSize = 150; // Tamaño del cuadrado (ajusta esto según tu diseño)
 
-    box.addEventListener('mouseover', function(){
-        box.innerHTML = color;
+
+    //.replace('rgba(', '').replace(')', '')
+    box.addEventListener('mouseenter', function(){
+        const colorInfo = `
+            <div class="color-info">
+                <p><b>RGBA:</b></p>
+                <p>${color.rgbaLabel}</p>
+                <p><b>Hex:</b></p>
+                <p>${color.hex}</p>
+            </div>
+        `;
+        box.innerHTML = colorInfo;
     })
 
-    box.addEventListener('mouseout', function(){
+    box.addEventListener('mouseleave', function(){
         box.innerHTML = "";
     })
+
     // Calcular cuántos cuadrados caben en el contenedor
     const cuadradosPorFila = Math.floor(contenedorWidth / boxSize);
     const cuadradosPorColumna = Math.floor(contenedorHeight / boxSize);
@@ -46,22 +88,4 @@ function createBox() {
 
 const intervalo = setInterval(() => {
     createBox();
-}, 1);
-
-/* document.body.addEventListener('click', function() {
-     clearInterval(intervalo); 
-    const elemntoBorrar = document.querySelectorAll('.box')
-
-    elemntoBorrar.forEach(item => {
-        item.remove()
-    })
-}); */
-
-
-/*  
-    random box size
-    box.style.height = Math.round(Math.random() * 50) + 'px'
-    box.style.width = Math.round(Math.random() * 50) + 'px'
-
-    console.log(Math.round(Math.random() * 50));
- */
+}, 50);
