@@ -33,11 +33,6 @@ function rgbToHex(r, g, b) {
     return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
 }
 
-function mostrarRgb(color, box){
-    console.log('color: ', color);
-    console.log('box: ', box);
-}
-
 function createBox() {
     const contenedor = document.querySelector('.contenedor');
     const box = document.createElement('div');
@@ -63,10 +58,12 @@ function createBox() {
             </div>
         `;
         box.innerHTML = colorInfo;
+        box.style.backgroundColor = `rgba(${color.red}, ${color.green}, ${color.blue}, 0.2)`;
     })
 
     box.addEventListener('mouseleave', function(){
         box.innerHTML = "";
+        box.style.backgroundColor = `rgba(${color.red}, ${color.green}, ${color.blue}, 1)`;
     })
 
     // Calcular cuántos cuadrados caben en el contenedor
@@ -88,4 +85,4 @@ function createBox() {
 
 const intervalo = setInterval(() => {
     createBox();
-}, 50);
+}, 11);
